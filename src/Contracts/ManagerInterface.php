@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @link     https://www.klmis.cn
  * @document https://www.klmis.cn
  * @contact  zhimengxingyun@klmis.cn
- * @license  https://gitee.com/firecms-ext/jwt/blob/master/LICENSE
+ * @license  https://github.com/firecms-ext/jwt/blob/master/LICENSE
  */
 namespace FirecmsExt\Jwt\Contracts;
 
@@ -20,12 +20,12 @@ use FirecmsExt\Jwt\Token;
 interface ManagerInterface
 {
     /**
-     * Encode a Payload and return the Token.
+     * 编码 Token.
      */
     public function encode(Payload $payload): Token;
 
     /**
-     * Decode a Token and return the Payload.
+     * 解密 Token.
      *
      * @throws TokenBlacklistedException
      */
