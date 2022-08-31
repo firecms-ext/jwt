@@ -55,9 +55,6 @@
     "extra": {
         "hyperf": {
             "config": "FirecmsExt\\Jwt\\ConfigProvider"
-        },
-        "branch-alias": {
-            "dev-master": "1.0-dev"
         }
     }
 }
