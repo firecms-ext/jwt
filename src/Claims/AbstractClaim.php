@@ -13,8 +13,8 @@ namespace FirecmsExt\Jwt\Claims;
 
 use FirecmsExt\Jwt\Contracts\ClaimInterface;
 use FirecmsExt\Jwt\Contracts\ManagerInterface;
-use Hyperf\Contract\Arrayable;
 use Hyperf\Utils\ApplicationContext;
+use Hyperf\Utils\Contracts\Arrayable;
 use Hyperf\Utils\Contracts\Jsonable;
 use JsonSerializable;
 use Psr\Container\ContainerExceptionInterface;
