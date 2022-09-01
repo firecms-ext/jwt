@@ -81,12 +81,12 @@ class Codec implements CodecInterface
     /**
      * The Configuration instance.
      */
-    protected Configuration $config;
+    protected ?Configuration $config = null;
 
     /**
      * The Signer instance.
      */
-    protected Signer $signer;
+    protected ?Signer $signer = null;
 
     /**
      * @throws JwtException
@@ -298,7 +298,7 @@ class Codec implements CodecInterface
      */
     protected function getSigner(): Signer
     {
-        if ($this->signer !== null) {
+        if (! is_null($this->signer)) {
             return $this->signer;
         }
 

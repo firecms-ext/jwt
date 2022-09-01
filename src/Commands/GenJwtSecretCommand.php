@@ -16,7 +16,7 @@ use Hyperf\Utils\Str;
 
 class GenJwtSecretCommand extends AbstractGenCommand
 {
-    protected ?string $name = 'gen:jwt-secret';
+    protected $name = 'gen:jwt-secret';
 
     protected string $description = 'Set the JWT secret key used to sign the tokens';
 
