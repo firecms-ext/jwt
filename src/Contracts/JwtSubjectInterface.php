@@ -16,7 +16,7 @@ interface JwtSubjectInterface
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      */
-    public function getJwtIdentifier(): mixed;
+    public function getJwtIdentifier(): string|int;
 
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
