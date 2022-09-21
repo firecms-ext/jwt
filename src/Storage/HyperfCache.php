@@ -76,6 +76,6 @@ class HyperfCache implements StorageInterface
 
     protected function resolveKey(string $key): string
     {
-        return $this->tag . '.' . $key;
+        return $this->tag . ':' . $key;
     }
 }
