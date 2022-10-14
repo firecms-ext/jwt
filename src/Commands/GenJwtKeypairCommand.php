@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/jwt/blob/master/LICENSE
  */
+
 namespace FirecmsExt\Jwt\Commands;
 
 use Exception;
@@ -36,7 +37,7 @@ class GenJwtKeypairCommand extends AbstractGenCommand
 
         [$privateKey, $publicKey] = $this->generateKeypair($config, $passphrase);
 
-        if (! empty($passphrase)) {
+        if (!empty($passphrase)) {
             $passphrase = base64_encode($passphrase);
         }
 
@@ -79,7 +80,7 @@ class GenJwtKeypairCommand extends AbstractGenCommand
         $envValue = empty($value) ? '(null)' : '"' . str_replace("\n", '\\n', $value) . '"';
 
         if (Str::contains(file_get_contents($path), $envKey) === false) {
-            file_put_contents($path, "{$envKey}={$envValue}\n", FILE_APPEND);
+            file_put_contents($path, PHP_EOL . "{$envKey}={$envValue}" . PHP_EOL, FILE_APPEND);
         } elseif ($force) {
             file_put_contents($path, preg_replace(
                 "~{$envKey}=[^\n]*~",
@@ -118,8 +119,8 @@ class GenJwtKeypairCommand extends AbstractGenCommand
     protected function isConfirmed(): bool
     {
         return $this->getOption('force') || $this->confirm(
-            'Are you sure you want to override the key pair? This will invalidate all existing tokens.'
-        );
+                'Are you sure you want to override the key pair? This will invalidate all existing tokens.'
+            );
     }
 
     protected function displayKey(string $privateKey, string $publicKey, ?string $passphrase): void

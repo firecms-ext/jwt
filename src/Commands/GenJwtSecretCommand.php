@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  zhimengxingyun@klmis.cn
  * @license  https://github.com/firecms-ext/jwt/blob/master/LICENSE
  */
+
 namespace FirecmsExt\Jwt\Commands;
 
 use Exception;
@@ -38,7 +39,7 @@ class GenJwtSecretCommand extends AbstractGenCommand
         }
 
         if (Str::contains(file_get_contents($path), 'JWT_SECRET') === false) {
-            file_put_contents($path, "\nJWT_SECRET={$key}\n", FILE_APPEND);
+            file_put_contents($path, PHP_EOL . "JWT_SECRET={$key}" . PHP_EOL, FILE_APPEND);
         } else {
             if ($this->getOption('always-no')) {
                 $this->comment('Secret key already exists. Skipping...');
@@ -68,7 +69,7 @@ class GenJwtSecretCommand extends AbstractGenCommand
     protected function isConfirmed(): bool
     {
         return $this->getOption('force') || $this->confirm(
-            'Are you sure you want to override the key? This will invalidate all existing tokens.'
-        );
+                'Are you sure you want to override the key? This will invalidate all existing tokens.'
+            );
     }
 }
